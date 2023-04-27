@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Management System</title>
+    <style>
+        * {
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background-image:url('https://media2.giphy.com/media/lo9OHBZzaM7W8Lg5L0/100.webp?cid=ecf05e47gxk9bw5pfe82z6f4n668myuge7sfgquqbedxlv2i&rid=100.webp&ct=g');
+            background-size: cover;
+        }
+        .btnstyle {
+            background-color:rgba(207, 178, 15, 0.613);
+            color:black;
+            padding:8px;
+            border-radius: 25px;
+            border:none;
+            font-size: 20px;
+            margin: 8px;
+            cursor: pointer;
+        }
+    </style>    
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <center>
+    <h1 style="color:rgb(35, 46, 38);">Patient Registration Form</h1></center>
+    <!--You have to give the links to the specific pages where the notes and 
+        file pages need to go-->
+    <a href="{{url_for('addpatient')}}"><button class="btnstyle">Add Patients</button></a>
+    <a href="{{url_for('patientsrecords')}}"><button class="btnstyle">Patients Records</button></a>
+    <a href="{{url_for('addtest')}}"><button class="btnstyle">Add Test</button></a>
+    <a href="{{url_for('logout')}}"><button class="btnstyle" style="margin-left:65%;">Logout</button></a>
+</body>
+</html>

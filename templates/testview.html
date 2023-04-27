@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List of Test</title>
+    <style>
+         table,td{
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        body{
+            background-image: url('https://img.freepik.com/free-photo/medicines-medical-supplies-placed-blue_1150-19151.jpg?w=2000');
+        }
+        .btnstyle {
+            background-color:blue;
+            color:white;
+            padding:10px;
+            border-radius: 35px;
+            border:none;
+            font-size: 30px;
+            margin: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+     <center><b>{{ message }}</b></center>
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+   <div>
+        <a href="{{url_for('addtest')}}"><button class="btnstyle">Add test</button></a>
+        <a href="{{url_for('home')}}"><button class="btnstyle">Back</button></a>
+   </div>
+   <table cellpadding="10px">
+    <tr>
+        <td><h2>Mobileno</h2></td>
+        <td><h2>Testname</h2></td>
+        <td><h2>Testresult</h2></td>
+    </tr>
+    
+    {% for i in data %}
+        <tr>
+            <td>{{i[0]}}</td>
+            <td>{{i[1]}}</td>
+            <td>{{i[2]}}</td>
+            <td><a href="{{url_for('updatetest',mobileno=i[0])}}"">Update</a></td>
+            <td><a href="{{url_for('deletetest',mobileno=i[0])}}"">Delete</a></td>
+        </tr>
+    {% endfor %}
+       
+   </table>
+</body>
+</html>

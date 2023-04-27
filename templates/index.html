@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Management System</title>
+    <style>
+        * {
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight: bold;
+        }
+        body {
+            background-image: url('https://thumbs.dreamstime.com/b/hospital-building-modern-parking-lot-59693686.jpg');
+            background-size: cover;
+
+        }
+        .btnstyle {
+            background-color:rgb(8, 0, 255);
+            color:rgb(235, 210, 16);
+            padding:10px;
+            border-radius: 5px;
+            border:none;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+        h1{
+            color: aliceblue;
+        }
+    </style>
+</head>
+{% with messages = get_flashed_messages() %}
+  {% if messages %}
+    {% for message in messages %}
+    {% endfor %}
+  {% endif %}
+{% endwith %}
+<body>
+    <center><h1>Patient Management System</h1></center>
+    <form method="POST"></form>
+    <div style="text-align:center; margin-top: 8%;">
+    <a href="{{url_for('register')}}"><button class="btnstyle">Register</button></a>
+    <a href="{{url_for('login')}}"><button class="btnstyle">Login</button></a>
+    </div>
+</body>
+</html>
